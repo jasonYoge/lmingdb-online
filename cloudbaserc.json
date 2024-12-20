@@ -14,31 +14,5 @@
                 }
             }
         }
-    },
-    "route": [
-        {
-            "path": "/search",
-            "method": "GET",
-            "handler": {
-                "type": "static",
-                "source": "./dist/index.html"
-            }
-        },
-        {
-            "path": "/upload",
-            "method": "GET",
-            "handler": {
-                "type": "static",
-                "source": "./dist/index.html"
-            }
-        },
-        {
-            "path": "/**",
-            "method": "GET",
-            "handler": {
-                "type": "static",
-                "source": "path/to/your/static/files"
-            }
-        }
-    ]
+    }
 }
