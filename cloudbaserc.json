@@ -1,0 +1,18 @@
+{
+    "envId": "lmingdb-2gfglj1s626cc70f",
+    "version": "2.0",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "functionRoot": "./functions",
+    "functions": [],
+    "framework": {
+        "name": "lmingdb",
+        "plugins": {
+            "website": {
+                "use": "@cloudbase/framework-plugin-website",
+                "inputs": {
+                    "outputPath": "./dist"
+                }
+            }
+        }
+    }
+}
