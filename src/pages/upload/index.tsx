@@ -104,7 +104,7 @@ export default function Upload() {
           multiple
           onChange={handleImageChange}
         />
-        <Button isLoading={loading} size="lg" className="mt-8 w-full md:w-[320px]" color="primary" type="submit" isDisabled={images.length === 0}>
+        <Button isLoading={loading} size="lg" className="mt-8 w-full" color="primary" type="submit" isDisabled={images.length === 0}>
           生成PDF
         </Button>
       </Form>

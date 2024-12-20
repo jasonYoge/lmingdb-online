@@ -4,7 +4,7 @@ import { Layout } from "../../components/layout";
 import { useCloudBase } from "../../hooks/use-cloud-base";
 
 export default function Search() {
-  const { downloadFile } = useCloudBase();
+  const { checkFileExist } = useCloudBase();
 
   const onSubmit = useMemoizedFn(async (e: any) => {
     e.preventDefault();
@@ -12,8 +12,12 @@ export default function Search() {
     const { number } = data;
 
     try {
-      await downloadFile(number);
-      window.location.href = `//6c6d-lmingdb-2gfglj1s626cc70f-1251844431.tcb.qcloud.la/%E6%B9%96%E5%8D%97%E7%9C%81%E5%8D%8E%E6%B9%98%E4%BB%95%E5%B7%A5%E7%A8%8B%E6%8B%85%E4%BF%9D%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8_${number}`;
+      const result = await checkFileExist(number);
+      if (result) {
+        window.location.href = `//6c6d-lmingdb-2gfglj1s626cc70f-1251844431.tcb.qcloud.la/%E6%B9%96%E5%8D%97%E7%9C%81%E5%8D%8E%E6%B9%98%E4%BB%95%E5%B7%A5%E7%A8%8B%E6%8B%85%E4%BF%9D%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8_${number}`;
+      } else {
+        alert('查询失败，未找到对应的保函');
+      }
     } catch (e) {
       alert('查询失败，未找到对应的保函');
     }

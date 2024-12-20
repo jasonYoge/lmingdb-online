@@ -21,10 +21,11 @@ export function useCloudBase() {
         onUploadProgress: onProgress
       });
     },
-    async downloadFile(fileID: string) {
-      return app.getTempFileURL({
-        fileList: [`cloud://lmingdb-2gfglj1s626cc70f.6c6d-lmingdb-2gfglj1s626cc70f-1251844431/湖南省华湘仕工程担保有限公司_${fileID}.pdf`]
+    async checkFileExist(fileID: string) {
+      const res = await app.getTempFileURL({
+        fileList: [`cloud://lmingdb-2gfglj1s626cc70f.6c6d-lmingdb-2gfglj1s626cc70f-1251844431/湖南省华湘仕工程担保有限公司_${fileID}`],
       });
+      return res.fileList?.[0]?.code === 'SUCCESS';
     }
   }
 }
